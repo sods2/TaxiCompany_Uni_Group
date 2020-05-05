@@ -1,6 +1,6 @@
 /**
  * Model the common elements of taxis and shuttles.
- * 
+ *
  * @author David J. Barnes and Michael Kölling
  * @version 2016.02.29
  */
@@ -13,7 +13,12 @@ public abstract class Vehicle implements Actor
     private Location targetLocation;
     // Record how often the vehicle has nothing to do.
     private int idleCount;
-    
+    //how often does the taxi move to pickup location
+    private int movingToPickupLocation;
+    //time moving to passenger destination
+    private int movingToPassengerDestination;
+
+
     /**
      * Constructor of class Vehicle
      * @param company The taxi company. Must not be null.
@@ -33,7 +38,7 @@ public abstract class Vehicle implements Actor
         targetLocation = null;
         idleCount = 0;
     }
-    
+
     /**
      * Notify the company of our arrival at a pickup location.
      */
@@ -41,7 +46,7 @@ public abstract class Vehicle implements Actor
     {
         company.arrivedAtPickup(this);
     }
-    
+
     /**
      * Notify the company of our arrival at a
      * passenger's destination.
@@ -50,33 +55,33 @@ public abstract class Vehicle implements Actor
     {
         company.arrivedAtDestination(this, passenger);
     }
-    
+
     /**
      * Receive a pickup location.
      * How this is handled depends on the type of vehicle.
      * @param location The pickup location.
      */
     public abstract void setPickupLocation(Location location);
-    
+
     /**
      * Receive a passenger.
      * How this is handled depends on the type of vehicle.
      * @param passenger The passenger.
      */
     public abstract void pickup(Passenger passenger);
-    
+
     /**
      * Is the vehicle free?
      * @return Whether or not this vehicle is free.
      */
     public abstract boolean isFree();
-    
+
     /**
      * Offload any passengers whose destination is the
      * current location.
      */
     public abstract void offloadPassenger();
-    
+
     /**
      * @return Where this vehicle is currently located.
      */
@@ -84,7 +89,7 @@ public abstract class Vehicle implements Actor
     {
         return location;
     }
-    
+
     /**
      * Set the current location.
      * @param location Where it is. Must not be null.
@@ -99,7 +104,7 @@ public abstract class Vehicle implements Actor
             throw new NullPointerException();
         }
     }
-    
+
     /**
      * Get the target location.
      * @return Where this vehicle is currently headed, or null
@@ -109,7 +114,7 @@ public abstract class Vehicle implements Actor
     {
         return targetLocation;
     }
-    
+
     /**
      * Set the required target location.
      * @param location Where to go. Must not be null.
@@ -124,7 +129,7 @@ public abstract class Vehicle implements Actor
             throw new NullPointerException();
         }
     }
-    
+
     /**
      * Clear the target location.
      */
@@ -140,7 +145,21 @@ public abstract class Vehicle implements Actor
     {
         return idleCount;
     }
-    
+
+    /**
+     * @return On how many steps this vehicle has been moving to pickup location.
+     */
+    public int getMovingToPickupLocation() {
+        return movingToPickupLocation;
+    }
+
+    /**
+     * @return On how many steps this vehicle has been moving to destination
+     */
+    public int getMovingToPassengerDestination() {
+        return movingToPassengerDestination;
+    }
+
     /**
      * Increment the number of steps on which this vehicle
      * has been idle.
@@ -149,4 +168,29 @@ public abstract class Vehicle implements Actor
     {
         idleCount++;
     }
+
+    /**
+     * Increment the number of steps on which this vehicle
+     * has been moving to pickup location.
+     */
+    public void incrementPickupLocation()
+    {
+        movingToPickupLocation++;
+    }
+
+    /**
+     * Increment the number of steps on which this vehicle
+     * has been moving to passenger destination
+     * */
+    public void incrementPassengerDestination()
+    {
+        movingToPassengerDestination++;
+    }
+
+
+
+
+
+
+
 }

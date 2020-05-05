@@ -3,7 +3,7 @@ import javax.swing.ImageIcon;
 
 /**
  * A taxi is able to carry a single passenger.
- * 
+ *
  * @author David J. Barnes and Michael Kölling
  * @version 2016.02.29
  */
@@ -13,7 +13,7 @@ public class Taxi extends Vehicle implements DrawableItem
     // Maintain separate images for when the taxi is empty
     // and full.
     private Image emptyImage, passengerImage;
-    
+
     /**
      * Constructor for objects of class Taxi
      * @param company The taxi company. Must not be null.
@@ -30,7 +30,7 @@ public class Taxi extends Vehicle implements DrawableItem
         passengerImage = new ImageIcon(getClass().getResource(
                                 "images/taxi+person.jpg")).getImage();
     }
-    
+
     /**
      * Move towards the target location if we have one.
      * Otherwise record that we are idle.
@@ -42,6 +42,12 @@ public class Taxi extends Vehicle implements DrawableItem
             // Find where to move to next.
             Location next = getLocation().nextLocation(target);
             setLocation(next);
+            if(passenger != null) {
+                incrementPassengerDestination();
+            }
+            else {
+                incrementPickupLocation();
+            }
             if(next.equals(target)) {
                 if(passenger != null) {
                     notifyPassengerArrival(passenger);
@@ -65,7 +71,7 @@ public class Taxi extends Vehicle implements DrawableItem
     {
         return getTargetLocation() == null && passenger == null;
     }
-    
+
     /**
      * Receive a pickup location. This becomes the
      * target location.
@@ -75,7 +81,7 @@ public class Taxi extends Vehicle implements DrawableItem
     {
         setTargetLocation(location);
     }
-    
+
     /**
      * Receive a passenger.
      * Set their destination as the target location.
@@ -95,7 +101,7 @@ public class Taxi extends Vehicle implements DrawableItem
         passenger = null;
         clearTargetLocation();
     }
-    
+
     /**
      * Return an image that describes our state:
      * either empty or carrying a passenger.
