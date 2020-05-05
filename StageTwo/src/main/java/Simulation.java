@@ -40,6 +40,14 @@ public class Simulation
             step();
             wait(100);
         }
+        int index = 0;
+        for(Actor actor: actors) {
+            if(actor instanceof Vehicle) {
+                System.out.println("Vehicle: " + index);
+                actor.displayData();
+                index++;
+            }
+        }
     }
 
     /**

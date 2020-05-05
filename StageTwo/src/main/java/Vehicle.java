@@ -187,7 +187,13 @@ public abstract class Vehicle implements Actor
         movingToPassengerDestination++;
     }
 
+    public void displayData() {
+        System.out.println("Taxi traveling Empty");
+        System.out.println(getMovingToPickupLocation());
 
+        System.out.println("Taxi traveling with Passenger");
+        System.out.println(getMovingToPassengerDestination());
+    }
 
 
 
