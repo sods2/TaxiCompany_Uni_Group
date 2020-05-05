@@ -51,7 +51,12 @@ public class CityGUI extends JFrame implements Actor
         }
         cityView.repaint();    
     }
-    
+
+    @Override
+    public void displayData() {
+
+    }
+
     /**
      * Provide a graphical view of a rectangular city. This is 
      * a nested class (a class defined inside a class) which
