@@ -4,11 +4,10 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/TaxiProject/pom.xml" />
-        <option value="$PROJECT_DIR$/StageTwo/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8.0_221" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/Taxi_Project" />
   </component>
 </project>
