@@ -79,7 +79,12 @@ public class Taxi extends Vehicle implements DrawableItem
      */
     public void setPickupLocation(Location location)
     {
-        setTargetLocation(location);
+        if (isFree() == true){
+            setTargetLocation(location);
+        }
+        else{
+            throw new IllegalArgumentException("Taxi already has a pickup location");
+        }
     }
 
     /**
@@ -89,8 +94,13 @@ public class Taxi extends Vehicle implements DrawableItem
      */
     public void pickup(Passenger passenger)
     {
-        this.passenger = passenger;
-        setTargetLocation(passenger.getDestination());
+        if(this.passenger == null){
+            this.passenger = passenger;
+            setTargetLocation(passenger.getDestination());
+        }
+        else{
+            throw new IllegalArgumentException("Taxi already has a passenger");
+        }
     }
 
     /**
@@ -98,8 +108,13 @@ public class Taxi extends Vehicle implements DrawableItem
      */
     public void offloadPassenger()
     {
-        passenger = null;
-        clearTargetLocation();
+        if ( passenger != null ) {
+            passenger = null;
+            clearTargetLocation();
+        }
+        else{
+            throw new IllegalArgumentException("No passenger to off load");
+        }
     }
 
     /**
