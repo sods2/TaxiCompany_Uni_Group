@@ -7,12 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="TaxiProject_stageOne" />
-        <module name="TaxiProject_StageOne" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
       <module name="TaxiProject_stageOne" target="1.8" />
-      <module name="TaxiProject_StageOne" target="1.8" />
+      <module name="TaxiProject_stagetwo" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

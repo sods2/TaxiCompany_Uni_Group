@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/StageTwo/StageTwo.iml" filepath="$PROJECT_DIR$/StageTwo/StageTwo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/TaxiCompany_Uni_Group.iml" filepath="$PROJECT_DIR$/.idea/TaxiCompany_Uni_Group.iml" />
-      <module fileurl="file://$PROJECT_DIR$/stageOne/TaxiProject.iml" filepath="$PROJECT_DIR$/stageOne/TaxiProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stageOne/TaxiProject_stageOne.iml" filepath="$PROJECT_DIR$/stageOne/TaxiProject_stageOne.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Taxi_Project/Taxi_Project.iml" filepath="$PROJECT_DIR$/Taxi_Project/Taxi_Project.iml" />
     </modules>
   </component>
 </project>
