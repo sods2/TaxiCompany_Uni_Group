@@ -28,6 +28,7 @@ public class Passenger implements DrawableItem
         if(destination == null) {
             throw new NullPointerException("Destination location");
         }
+        assert pickup != destination: "No trip needed"; 
         this.pickup = pickup;
         this.destination = destination;
         // Load the image used to represent a person.
@@ -49,6 +50,9 @@ public class Passenger implements DrawableItem
      */
     public Image getImage()
     {
+       if (image == null) {
+       throw new NullPointerException ("Passenger Image");
+       }
         return image;
     }
     

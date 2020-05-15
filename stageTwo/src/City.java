@@ -34,6 +34,8 @@ public class City
                         "Height must be positive: " +
                         height);
         }
+        assert width < 1000: "City is too big for system"; 
+        assert height < 1000: "City is too big for system"; 
         this.width = width;
         this.height = height;
         items = new LinkedList<>();
